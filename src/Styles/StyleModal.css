@@ -1,0 +1,16 @@
+.modal {
+    background-color: rgb(210, 252, 239);
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .buttonModal {
+    background-color: rgb(236, 206, 250);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

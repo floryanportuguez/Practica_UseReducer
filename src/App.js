@@ -1,16 +1,19 @@
-// En App.js
 import React, { useReducer, useEffect } from 'react';
 import './App.css';
 import Tareas from './componentes/Tareas';
 import Semaforo from './componentes/Semaforo';
 import ContadorLikes from './componentes/Contador'; 
 import Calculadora from './componentes/Calculadora';
+import Modal from './componentes/Modal';
 
 const initialState = {
   showSemaforo: false,
   showTareas: JSON.parse(localStorage.getItem('showTareas')) || false,
   showContador: false, 
+  showCalculadora: false,
+  isModalOpen: false
 };
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -22,6 +25,8 @@ const reducer = (state, action) => {
       return { ...state, showContador: !state.showContador }; 
       case 'TOGGLE_CALCULADORA':
         return { ...state, showCalculadora: !state.showCalculadora }; 
+        case 'TOGGLE_MODAL':
+      return { ...state, isModalOpen: !state.isModalOpen };
     default:
       return state;
   }
@@ -45,6 +50,15 @@ function App() {
   const toggleCalculadora = () => {
     dispatch({ type: 'TOGGLE_CALCULADORA' });
   };
+
+  const toggleModal = () => {
+    dispatch({ type: 'TOGGLE_MODAL' });
+  };
+
+  const closeModal = () => {
+    dispatch({ type: 'TOGGLE_MODAL' });
+  };
+
 
   useEffect(() => {
     localStorage.setItem('showTareas', JSON.stringify(state.showTareas));
@@ -75,7 +89,11 @@ function App() {
             {state.showCalculadora ? 'Ocultar Calculadora' : 'Mostrar Calculadora'}
           </button>
           {state.showCalculadora && <Calculadora />} 
-        </div>
+          </div >
+         <button onClick={toggleModal} className="button" style={{ marginTop: '20px', fontSize: '20px' }}>
+          {state.isModalOpen ? 'Ocultar Modal' : 'Mostrar Modal'}
+        </button>
+        <Modal isModalOpen={state.isModalOpen} closeModal={closeModal} />
       </div>
     </div>
   );
