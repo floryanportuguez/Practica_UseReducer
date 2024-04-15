@@ -1,0 +1,36 @@
+.lista-tareas {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tarea-item {
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc; /* Línea divisoria entre elementos de la lista */
+  }
+  
+  .tarea-item:last-child {
+    border-bottom: none; /* Eliminar línea divisoria del último elemento */
+  }
+  
+  .tarea-item span {
+    font-size: 18px;
+  }
+  
+  .tarea-item button {
+    font-size: 16px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .tarea-item button:hover {
+    background-color: #0056b3;
+  }
+  
